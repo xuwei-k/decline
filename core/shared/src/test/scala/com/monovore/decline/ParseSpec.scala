@@ -7,7 +7,7 @@ import cats.implicits._
 import cats.laws.discipline.AlternativeTests
 import org.scalacheck.{Arbitrary, Gen, Prop}
 import org.scalactic.anyvals.PosInt
-import org.scalatest.prop.Checkers
+import org.scalatestplus.scalacheck.Checkers
 import org.scalatest.{Matchers, WordSpec}
 
 class ParseSpec extends WordSpec with Matchers with Checkers {

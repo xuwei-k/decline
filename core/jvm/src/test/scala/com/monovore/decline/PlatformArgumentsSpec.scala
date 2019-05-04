@@ -5,9 +5,9 @@ import java.nio.file.{Path, Paths}
 import cats.data.Validated.Valid
 import org.scalacheck.Gen
 import org.scalatest.{Matchers, WordSpec}
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
-class PlatformArgumentsSpec extends WordSpec with Matchers with GeneratorDrivenPropertyChecks {
+class PlatformArgumentsSpec extends WordSpec with Matchers with ScalaCheckDrivenPropertyChecks {
 
   "Path arguments" should {
 
