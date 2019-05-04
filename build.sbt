@@ -5,7 +5,7 @@ enablePlugins(ScalaJSPlugin)
 
 val defaultSettings = Seq(
   scalaVersion := "2.11.12",
-  crossScalaVersions := List("2.11.12", "2.12.8", "2.13.0-M5"),
+  crossScalaVersions := List("2.11.12", "2.12.8", "2.13.0-RC1"),
   resolvers += Resolver.sonatypeRepo("releases"),
   homepage := Some(url("http://monovore.com/decline")),
   organization := "com.monovore",
@@ -66,19 +66,18 @@ lazy val root =
 lazy val decline =
   crossProject(JSPlatform, JVMPlatform).in(file("core"))
     .settings(defaultSettings)
-    .settings(addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.8" cross CrossVersion.binary))
+    .settings(addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.0" cross CrossVersion.binary))
     .settings(
       name := "decline",
       description := "Composable command-line parsing for Scala",
       libraryDependencies ++= {
-        val catsVersion = "1.5.0"
+        val catsVersion = "2.0.0-M1"
 
         Seq(
           "org.typelevel"  %%% "cats-core"    % catsVersion,
           "org.typelevel"  %%% "cats-laws"    % catsVersion % "test",
           "org.typelevel"  %%% "cats-testkit" % catsVersion % "test",
-          "org.typelevel"  %%% "discipline"   % "0.9.0" % "test",
-          "org.scalatest"  %%% "scalatest"    % "3.0.6-SNAP5" % "test",
+          "org.scalatest"  %%% "scalatest"    % "3.0.8-RC2" % "test",
           "org.scalacheck" %%% "scalacheck"   % "1.14.0" % "test"
         )
       }
@@ -105,7 +104,7 @@ lazy val refined =
       name := "refined",
       moduleName := "decline-refined",
       libraryDependencies ++= {
-        val refinedVersion = "0.9.3"
+        val refinedVersion = "0.9.5"
 
         Seq(
           "eu.timepit" %%% "refined"            % refinedVersion,
